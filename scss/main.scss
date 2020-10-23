@@ -252,9 +252,10 @@ figure .img {
 }
 
 .container-gallery {
+    width:50vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, minmax(auto, 1fr));
     justify-items: center;
     gap: 20px;
     margin: 0.2em 2em 0.2em 2em;
@@ -274,7 +275,7 @@ figure .img {
         display: block;
         cursor: pointer;
     }
-    nav ul {
+    .menu {
         text-align: center;
         grid-template-columns: 1fr;
         justify-content: center;
@@ -284,18 +285,15 @@ figure .img {
         left: 10%;
         position: absolute;
         background-color: rgba(0, 0, 0, 0.8);
-        // max-height: 0px;
-        // overflow: hidden;
+        max-height: 0px;
+        overflow: hidden;
+        z-index: 9;
     }
     nav a {
         opacity: 1;
     }
-    .menu {
-        overflow: hidden;
-        max-height: 0px;
-    }
-    #toggle:checked+.menu {
-        max-height: 300px;
+    #toggle:checked + .menu {
+        max-height: 300px !important;
     } 
     header .logo {
         float: left;
@@ -355,6 +353,9 @@ figure .img {
 @media(max-width: 480px){ 
     .heroitems h1 {
         font-size: 30px;
+    }
+    .container-gallery {
+        width:70vw;
     }
     .heroitems p {
         font-size: 20px;
